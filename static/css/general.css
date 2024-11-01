@@ -1,0 +1,43 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+/* Style de la barre de navigation */
+.navbar {
+    background-color: #333; /* Couleur de fond de la barre de navigation */
+    padding: 10px 20px;
+}
+
+/* Style des liens dans la navigation */
+.navbar ul {
+    list-style: none; /* Supprime les puces de la liste */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Espace entre les éléments */
+}
+
+.navbar ul li {
+    display: inline; /* Affiche les éléments de la liste en ligne */
+}
+
+.navbar ul li a {
+    color: #fff; /* Couleur des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Effet de transition */
+}
+
+/* Couleur au survol des liens */
+.navbar ul li a:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+p {
+    font-family: "Fira Code Medium", monospace;
+    color: greenyellow;
+}
+

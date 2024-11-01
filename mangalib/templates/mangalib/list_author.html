@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Mangalib
+{% endblock %}
+
+{% block content %}
+
+    <h1>Welcome Authors List</h1>
+        <p><a href="{% url 'mangalib:add_author' %}" >+ Add new Author</a></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>NB Books</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+               {% for author in authors %}
+               	    <tr>
+                        <th><a href="{% url 'mangalib:show_author' author.id %}">{{ author.name }}</a></th>
+                        <th>{{ author.book_count }}</th>
+                        <th><a href="{% url 'mangalib:edit_author' author.id %}">✏️</a></th>
+                        <th><a href="{% url 'mangalib:del_author' author.id %}">❌</a></th>
+                    </tr>
+               {% endfor %}
+
+
+            </tbody>
+        </table>
+
+{% endblock %}

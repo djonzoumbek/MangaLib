@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+
+    {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/mangalib/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+</head>
+<body>
+
+
+<nav class="navbar">
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'mangalib:home' %}">Home</a></li>
+            <li><a href="{% url 'mangalib:list_authors' %}">List Authors</a></li>
+            <li><a href="{% url 'mangalib:add' %}">Add Book</a></li>
+            <li><a href="{% url 'mangalib:add_author' %}">Add Author</a></li>
+            <li><span>{{ user.username }}</span></li>
+            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'mangalib:home' %}">Home</a></li>
+            <li><a href="{% url 'mangalib:list_authors' %}">List Authors</a></li>
+            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+            <li><a href="{% url 'accounts:register' %}">Register</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+{% comment %}
+    	Ben je ne te connaissais pas du con !
+    {% endcomment %}
+<h2>{% now 'd/m/y' %}</h2>
+
+</body>
+</html>

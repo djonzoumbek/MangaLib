@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ book.title | slugify }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+
+    <p>Quantity : {{ book.quantity }}</p>
+    <p>Author: {{ book.author }}</p>
+
+    {% comment %}
+    	Ben je ne te connaissais pas du con !
+    {% endcomment %}
+
+    <p><a href="{% url 'mangalib:home' %}">Come Back</a></p>
+{% endblock %}

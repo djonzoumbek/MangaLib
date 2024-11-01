@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Mangalib
+{% endblock %}
+
+{% block content %}
+
+    <h1>Welcome to Mangalib</h1>
+        <p><a href="{% url 'mangalib:add' %}" >+ Add new book</a></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Quantity</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+               {% for book in books %}
+               	    <tr>
+                        <th><a href="{% url 'mangalib:show' book.id %}">{{ book.title }}</a></th>
+                        <th>{{ book.author }}</th>
+                        <th>{{ book.quantity }}</th>
+                        <th><a href="{% url 'mangalib:edit' book.id %}">✏️</a></th>
+                        <th><a href="{% url 'mangalib:delete' book.id %}">❌</a></th>
+                    </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}
